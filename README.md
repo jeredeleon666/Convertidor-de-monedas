@@ -44,12 +44,14 @@ El modelo se compone de tres tablas principales:
    git clone https://github.com/jeredeleon666/Convertidor-de-monedas.git
    ```
 
-2. Configurar API key:
+2. Configurar API key y los parametros de ejecucion:
    
    TU_API_KEY
- 
+<img width="799" alt="Captura de pantalla 2025-05-05 a la(s) 23 41 55" src="https://github.com/user-attachments/assets/1af6c2bc-1ae5-42c0-9796-da8e8e4e042f" />
 
-3. Añadir JavaFX al build (en `build.gradle`):
+   
+
+4. Añadir JavaFX al build (en `build.gradle`):
    ```groovy
    dependencies {
        implementation "org.openjfx:javafx-controls:24"
@@ -60,9 +62,12 @@ El modelo se compone de tres tablas principales:
        version = "24"
        modules = ["javafx.controls", "javafx.fxml"]
    }
+
+   />
+
    ```
 
-4. Ejecutar con Gradle:
+5. Ejecutar con Gradle:
    ```bash
    ./gradlew run
    ```
