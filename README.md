@@ -1,6 +1,8 @@
 # Convertidor de Monedas con Historial Integrado 💱
 
 Aplicación de escritorio para convertir divisas en tiempo real, con historial persistente y gestión local.
+<img width="1201" alt="Captura de pantalla 2025-05-05 a la(s) 23 26 54" src="https://github.com/user-attachments/assets/872b9dc9-18da-4886-931f-0a5ecf632894" />
+
 
 ## Características
 
@@ -42,10 +44,10 @@ El modelo se compone de tres tablas principales:
    git clone https://github.com/jeredeleon666/Convertidor-de-monedas.git
    ```
 
-2. Configurar API key en `config.properties`:
-   ```properties
-   api.key=TU_API_KEY
-   ```
+2. Configurar API key:
+   
+   TU_API_KEY
+ 
 
 3. Añadir JavaFX al build (en `build.gradle`):
    ```groovy
