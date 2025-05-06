@@ -1,0 +1,581 @@
+/* styles.css */
+
+/* ======================
+   VARIABLES DE COLORES
+   ====================== */
+
+/* Tema claro (día) — Tonos Océano */
+.root.light {
+    -primary-dark:      #026C9E;
+    -primary-light:     #58B3DC;
+    -primary-text:      white;
+    -background-color:  #E0F7FA;
+    -card-background:   #E0F7FA;
+    -card-border:       #E2E8F0;
+    -text-primary:      #1E3A2E;
+    -text-secondary:    #475569;
+    -text-placeholder:  rgba(30,58,46,0.7);
+    -hover-light:       rgba(0,0,0,0.05);
+    -hover-primary:     rgba(2,108,158,0.2);
+    -success-color:     #4CAF50;
+    -success-border:    #3B6E47;
+    -error-color:       #B91C1C;
+}
+
+/* Tema oscuro (noche) — Tonos Bosque Mejorado */
+.root.dark {
+    -primary-dark:      #2E5B33;      /* Verde bosque más claro */
+    -primary-light:     #6BAF75;      /* Verde más claro y visible */
+    -primary-text:      #E2F0E6;      /* Texto claro con tono verdoso suave */
+    -background-color:  #1A2130;      /* Fondo azul oscuro más suave */
+    -card-background:   #253242;      /* Fondo de tarjetas más neutral */
+    -card-border:       #394759;      /* Borde más visible */
+    -text-primary:      #D8E5EB;      /* Texto principal más claro */
+    -text-secondary:    #A9B8C9;      /* Texto secundario con mejor contraste */
+    -text-placeholder:  rgba(218,229,235,0.6); /* Placeholder más claro */
+    -hover-light:       rgba(255,255,255,0.12); /* Hover más visible */
+    -hover-primary:     rgba(107,175,117,0.25); /* Hover primario */
+    -success-color:     #5CCA61;      /* Verde éxito más brillante */
+    -success-border:    #3E8F45;      /* Borde de éxito */
+    -error-color:       #F87171;      /* Color de error */
+}
+
+/* ======================
+   ESTILOS GENERALES
+   ====================== */
+.root.light, .root.dark {
+    -fx-background-color: -background-color;
+}
+
+/* ============== TITLE BAR ============== */
+.root.light .title-bar, .root.dark .title-bar {
+    -fx-background-color: linear-gradient(to bottom, -primary-dark, -primary-light);
+    -fx-pref-height: 48px;
+    -fx-padding: 8 16;
+}
+
+.root.light .title-text, .root.dark .title-text {
+    -fx-text-fill: -primary-text;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.root.light .title-search {
+    -fx-background-color: rgba(255,255,255,0.4);
+}
+.root.dark .title-search {
+    -fx-background-color: rgba(255,255,255,0.2);  /* Aumentado para mejor visibilidad */
+}
+
+.root.light .title-search, .root.dark .title-search {
+    -fx-background-radius: 4;
+    -fx-text-fill: -text-primary;
+    -fx-prompt-text-fill: -text-placeholder;
+    -fx-pref-height: 28px;
+}
+
+.root.light .title-button, .root.dark .title-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: -primary-text;
+}
+
+.root.light .title-button:hover, .root.dark .title-button:hover {
+    -fx-background-color: -hover-primary;
+    -fx-background-radius: 4;
+}
+
+.root.light .close-button:hover, .root.dark .close-button:hover {
+    -fx-background-color: -error-color;
+    -fx-background-radius: 4;
+}
+
+/* ============== NAV PANE ============== */
+.root.light .nav-pane, .root.dark .nav-pane {
+    -fx-background-color: -card-background;
+    -fx-border-color: -card-border;
+    -fx-border-width: 0 1 0 0;
+}
+
+.root.light .nav-title {
+    -fx-text-fill: -primary-dark;
+}
+.root.dark .nav-title {
+    -fx-text-fill: -primary-light;  /* Cambiado para mejor contraste */
+}
+
+.root.light .nav-title, .root.dark .nav-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* ============== LIST VIEW ============== */
+.root.light .list-view, .root.dark .list-view {
+    -fx-background-color: -card-background;
+    -fx-background-radius: 6;
+    -fx-border-color: -card-border;
+    -fx-border-radius: 6;
+}
+
+.root.light .list-cell, .root.dark .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: -text-primary;
+    -fx-padding: 8 12;
+}
+
+.root.light .list-cell:hover, .root.dark .list-cell:hover {
+    -fx-background-color: -hover-light;
+}
+
+.root.light .list-cell:selected {
+    -fx-background-color: -hover-primary;
+    -fx-text-fill: -primary-dark;
+}
+.root.dark .list-cell:selected {
+    -fx-background-color: -hover-primary;
+    -fx-text-fill: -text-primary;  /* Mejor legibilidad */
+}
+
+/* ============== LABELS ============== */
+.root.light .label, .root.dark .label {
+    -fx-text-fill: -text-primary;
+}
+
+.root.light #selectedCountryLabel {
+    -fx-text-fill: -primary-dark;
+}
+.root.dark #selectedCountryLabel {
+    -fx-text-fill: -primary-light;
+}
+
+.root.light #selectedCountryLabel, .root.dark #selectedCountryLabel {
+    -fx-font-weight: bold;
+}
+
+.root.light .content-placeholder, .root.dark .content-placeholder {
+    -fx-text-fill: -text-secondary;
+    -fx-font-size: 14px;
+}
+
+/* ============== SEPARATORS ============== */
+.root.light .separator .line, .root.dark .separator .line {
+    -fx-border-color: -card-border;
+}
+
+/* ============== CONTENT AREA ============== */
+.root.light #contentArea, .root.dark #contentArea {
+    -fx-background-color: -background-color;
+}
+
+/* ============== ITEM CONTAINER ============== */
+.root.light .item-container, .root.dark .item-container {
+    -fx-background-color: -card-background;
+    -fx-background-radius: 6;
+    -fx-border-color: -primary-light;
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-padding: 5 10;
+    -fx-alignment: CENTER_LEFT;
+    -fx-spacing: 8;
+}
+
+.root.light .item-text {
+    -fx-text-fill: -primary-dark;
+}
+.root.dark .item-text {
+    -fx-text-fill: -primary-light;
+}
+
+.root.light .item-text, .root.dark .item-text {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.root.light .item-container:hover, .root.dark .item-container:hover {
+    -fx-background-color: -hover-light;
+    -fx-background-radius: 6;
+}
+
+/* ============== TOGGLE BUTTON TEMAS - CON ÍCONOS SVG Y CÍRCULO DE FONDO ============== */
+/* Estilo base para ambos temas */
+.theme-toggle {
+    -fx-padding: 4px;
+    -fx-background-radius: 50%;  /* Forma circular */
+    -fx-min-width: 32px;
+    -fx-min-height: 32px;
+    -fx-max-width: 32px;
+    -fx-max-height: 32px;
+    -fx-content-display: graphic-only;
+    -fx-cursor: hand;
+}
+
+/* Estilo específico para tema claro */
+.root.light .theme-toggle {
+    -fx-background-color: #F8FAFC;  /* Fondo claro para el círculo */
+    -fx-border-color: #E2E8F0;      /* Borde sutil */
+    -fx-border-radius: 50%;         /* Borde circular */
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 3, 0, 0, 1);  /* Sombra sutil */
+}
+
+/* Estilo específico para tema oscuro */
+.root.dark .theme-toggle {
+    -fx-background-color: #384454;  /* Fondo oscuro para el círculo */
+    -fx-border-color: #4D5B6E;      /* Borde más visible */
+    -fx-border-radius: 50%;         /* Borde circular */
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 3, 0, 0, 1);  /* Sombra más pronunciada */
+}
+
+/* Efecto hover para ambos temas */
+.theme-toggle:hover {
+    -fx-effect: dropshadow(gaussian, -primary-light, 6, 0.4, 0, 0);
+    -fx-background-color: derive(-card-background, 10%);  /* Fondo ligeramente más claro al hover */
+}
+
+/* Efecto cuando está seleccionado */
+.theme-toggle:selected {
+    -fx-background-color: derive(-primary-light, -5%);  /* Fondo más oscuro cuando está activo */
+    -fx-border-color: -primary-dark;                  /* Borde del color primario */
+}
+
+/* ============== COMPONENTES ADICIONALES ============== */
+.root.light .button, .root.dark .button {
+    -fx-background-color: -primary-light;
+    -fx-text-fill: white;
+    -fx-background-radius: 4;
+    -fx-padding: 6 12;
+}
+
+.root.light .button:hover, .root.dark .button:hover {
+    -fx-background-color: -primary-dark;
+}
+
+.root.light .text-field, .root.dark .text-field {
+    -fx-background-color: -card-background;
+    -fx-background-radius: 4;
+    -fx-border-color: -card-border;
+    -fx-border-radius: 4;
+    -fx-text-fill: -text-primary;
+    -fx-prompt-text-fill: -text-placeholder;
+}
+
+.root.light .combo-box, .root.dark .combo-box {
+    -fx-background-color: -card-background;
+    -fx-background-radius: 4;
+    -fx-border-color: -card-border;
+    -fx-border-radius: 4;
+}
+
+.root.light .combo-box .list-cell, .root.dark .combo-box .list-cell {
+    -fx-text-fill: -text-primary;
+}
+
+/* ============== SCROLL BARS ============== */
+.list-view .scroll-bar:horizontal {
+    -fx-opacity: 0;
+    -fx-pref-height: 0;
+    -fx-max-height: 0;
+}
+
+.list-view .scroll-bar:vertical {
+    -fx-background-color: transparent;
+    -fx-pref-width: 8px;
+}
+
+.list-view .scroll-bar:vertical .thumb {
+    -fx-background-color: -primary-light;
+    -fx-background-radius: 2px;
+    -fx-pref-width: 3px;
+    -fx-background-insets: 0 2 0 2;
+}
+
+.list-view .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: -primary-dark;
+}
+
+.list-view .scroll-bar:vertical .track,
+.list-view .scroll-bar:vertical .increment-button,
+.list-view .scroll-bar:vertical .decrement-button,
+.list-view .scroll-bar:vertical .increment-arrow,
+.list-view .scroll-bar:vertical .decrement-arrow,
+.list-view .corner {
+    -fx-background-color: transparent;
+    -fx-opacity: 0;
+    -fx-pref-height: 0;
+}
+
+/* ============== SOMBRAS ============== */
+#iconShadow {
+    -fx-radius: 5;
+    -fx-spread: 0.2;
+}
+#containerShadow {
+    -fx-radius: 8;
+    -fx-spread: 0.15;
+}
+
+.root.light #iconShadow { -fx-color: rgba(0,0,0,0.2); }
+.root.dark #iconShadow { -fx-color: rgba(0,0,0,0.3); }  /* Reducido para mejor visibilidad */
+.root.light #containerShadow { -fx-color: rgba(0,0,0,0.15); }
+.root.dark #containerShadow { -fx-color: rgba(0,0,0,0.25); }  /* Ajustado para mejor visibilidad */
+
+/* ======================
+   ESTILOS DEL CONVERTIDOR DE MONEDAS
+   ====================== */
+
+/* Contenedor principal */
+.root.light .currency-converter, .root.dark .currency-converter {
+    -fx-background-color: -background-color;
+    -fx-padding: 20px;
+}
+
+/* Título principal */
+.root.light .converter-title {
+    -fx-text-fill: -primary-dark;
+}
+.root.dark .converter-title {
+    -fx-text-fill: -primary-light;
+}
+
+.root.light .converter-title, .root.dark .converter-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.root.light .converter-subtitle {
+    -fx-text-fill: -text-secondary;
+}
+.root.dark .converter-subtitle {
+    -fx-text-fill: -text-secondary;
+}
+
+.root.light .converter-subtitle, .root.dark .converter-subtitle {
+    -fx-font-size: 14px;
+}
+
+/* Tarjetas de conversión y resultado */
+.root.light .converter-card {
+    -fx-background-color: -card-background;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.15), 8, 0.15, 0, 1);
+}
+.root.dark .converter-card {
+    -fx-background-color: -card-background;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.25), 8, 0.15, 0, 1);
+}
+
+.root.light .converter-card, .root.dark .converter-card {
+    -fx-background-radius: 15;
+    -fx-border-color: -card-border;
+    -fx-border-radius: 15;
+    -fx-border-width: 1;
+    -fx-padding: 25;
+}
+
+/* Etiquetas de secciones */
+.root.light .source-label {
+    -fx-text-fill: -primary-dark;
+}
+.root.dark .source-label {
+    -fx-text-fill: -primary-light;
+}
+
+.root.light .source-label, .root.dark .source-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+.root.light .target-label {
+    -fx-text-fill: -primary-dark;
+}
+.root.dark .target-label {
+    -fx-text-fill: -primary-light;
+}
+
+.root.light .target-label, .root.dark .target-label {
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+}
+
+/* ComboBox personalizado */
+.root.light .currency-combo-box {
+    -fx-background-color: -card-background;
+    -fx-border-color: -card-border;
+}
+.root.dark .currency-combo-box {
+    -fx-background-color: -card-background;
+    -fx-border-color: -card-border;
+}
+
+.root.light .currency-combo-box, .root.dark .currency-combo-box {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 5;
+}
+
+.root.light .currency-combo-box .list-cell {
+    -fx-text-fill: -text-primary;
+}
+.root.dark .currency-combo-box .list-cell {
+    -fx-text-fill: -text-primary;
+}
+
+.root.light .currency-combo-box:hover, .root.dark .currency-combo-box:hover {
+    -fx-border-color: -primary-light;
+}
+
+/* Campo de texto personalizado */
+.root.light .amount-field {
+    -fx-background-color: -card-background;
+    -fx-border-color: -card-border;
+    -fx-text-fill: -text-primary;
+    -fx-prompt-text-fill: -text-placeholder;
+}
+.root.dark .amount-field {
+    -fx-background-color: -card-background;
+    -fx-border-color: -card-border;
+    -fx-text-fill: -text-primary;
+    -fx-prompt-text-fill: -text-placeholder;
+}
+
+.root.light .amount-field, .root.dark .amount-field {
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-width: 1;
+    -fx-padding: 8;
+}
+
+.root.light .amount-field:focused, .root.dark .amount-field:focused {
+    -fx-border-color: -primary-light;
+    -fx-border-width: 1.5;
+}
+
+/* Indicador de conversión */
+.root.light .conversion-indicator-line {
+    -fx-stroke: -card-border;
+}
+.root.dark .conversion-indicator-line {
+    -fx-stroke: -card-border;
+}
+
+.root.light .conversion-indicator-circle {
+    -fx-fill: -primary-light;
+}
+.root.dark .conversion-indicator-circle {
+    -fx-fill: -primary-light;
+}
+
+.root.light .conversion-symbol {
+    -fx-text-fill: -primary-text;
+}
+.root.dark .conversion-symbol {
+    -fx-text-fill: -primary-text;
+}
+
+/* Botón de conversión */
+.root.light .convert-button {
+    -fx-background-color: -primary-light;
+    -fx-text-fill: -primary-text;
+}
+.root.dark .convert-button {
+    -fx-background-color: -primary-light;
+    -fx-text-fill: -primary-text;
+}
+
+.root.light .convert-button, .root.dark .convert-button {
+    -fx-background-radius: 20;
+    -fx-font-weight: bold;
+    -fx-font-size: 16px;
+    -fx-padding: 10 20;
+}
+
+.root.light .convert-button:hover {
+    -fx-background-color: -primary-dark;
+}
+.root.dark .convert-button:hover {
+    -fx-background-color: -primary-dark;
+}
+
+/* Tarjeta de resultado */
+.root.light .result-title {
+    -fx-text-fill: -text-primary;
+}
+.root.dark .result-title {
+    -fx-text-fill: -text-primary;
+}
+
+.root.light .result-title, .root.dark .result-title {
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+/* Valores de resultado */
+.root.light .source-amount {
+    -fx-text-fill: -primary-dark;
+}
+.root.dark .source-amount {
+    -fx-text-fill: -primary-light;
+}
+
+.root.light .source-amount, .root.dark .source-amount {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.root.light .source-currency {
+    -fx-text-fill: -primary-dark;
+}
+.root.dark .source-currency {
+    -fx-text-fill: -primary-light;
+}
+
+.root.light .source-currency, .root.dark .source-currency {
+    -fx-font-size: 16px;
+}
+
+.root.light .target-amount {
+    -fx-text-fill: -success-color;
+}
+.root.dark .target-amount {
+    -fx-text-fill: -success-color;
+}
+
+.root.light .target-amount, .root.dark .target-amount {
+    -fx-font-size: 22px;
+    -fx-font-weight: bold;
+}
+
+.root.light .target-currency {
+    -fx-text-fill: -success-color;
+}
+.root.dark .target-currency {
+    -fx-text-fill: -success-color;
+}
+
+.root.light .target-currency, .root.dark .target-currency {
+    -fx-font-size: 16px;
+}
+
+.root.light .exchange-rate {
+    -fx-text-fill: -text-secondary;
+}
+.root.dark .exchange-rate {
+    -fx-text-fill: -text-secondary;
+}
+
+.root.light .exchange-rate, .root.dark .exchange-rate {
+    -fx-font-size: 12px;
+}
+
+/* Pie de página */
+.root.light .footer {
+    -fx-background-color: -primary-dark;
+}
+.root.dark .footer {
+    -fx-background-color: -primary-dark;
+}
+
+.root.light .footer-text, .root.dark .footer-text {
+    -fx-text-fill: -primary-text;
+}
+

@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.shape.Circle?>
+
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="bodoque.imagina.convertir_monedas.util.Controllers.HistorialItemController"
+      spacing="10" alignment="CENTER_LEFT" styleClass="historial-item">
+
+    <padding>
+        <Insets top="8" right="12" bottom="8" left="12"/>
+    </padding>
+
+    <!-- Contenedor principal con toda la información -->
+    <VBox spacing="5" HBox.hgrow="ALWAYS">
+        <!-- Fecha y hora de la conversión -->
+        <Label fx:id="labelFecha" styleClass="historial-fecha"/>
+
+        <!-- Detalles de la conversión -->
+        <HBox spacing="10" alignment="CENTER_LEFT">
+            <!-- Moneda de origen -->
+            <HBox spacing="5" alignment="CENTER_LEFT">
+                <ImageView fx:id="imageOrigen" fitWidth="20" fitHeight="20" preserveRatio="true"/>
+                <VBox alignment="CENTER_LEFT">
+                    <Label fx:id="labelMontoOrigen" styleClass="historial-monto"/>
+                    <Label fx:id="labelMonedaOrigen" styleClass="historial-moneda"/>
+                </VBox>
+            </HBox>
+
+            <!-- Flecha de conversión -->
+            <Label text="→" styleClass="historial-flecha"/>
+
+            <!-- Moneda de destino -->
+            <HBox spacing="5" alignment="CENTER_LEFT">
+                <ImageView fx:id="imageDestino" fitWidth="20" fitHeight="20" preserveRatio="true"/>
+                <VBox alignment="CENTER_LEFT">
+                    <Label fx:id="labelMontoDestino" styleClass="historial-monto"/>
+                    <Label fx:id="labelMonedaDestino" styleClass="historial-moneda"/>
+                </VBox>
+            </HBox>
+        </HBox>
+
+        <!-- Tasa de cambio -->
+        <HBox spacing="5" alignment="CENTER_LEFT">
+            <Label text="Tasa:" styleClass="historial-tasa-label"/>
+            <Label fx:id="labelTasaCambio" styleClass="historial-tasa-valor"/>
+        </HBox>
+    </VBox>
+</HBox>

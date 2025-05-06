@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="bodoque.imagina.convertir_monedas.util.Controllers.ConversionFormController"
+            prefHeight="400.0" prefWidth="400.0"
+            styleClass="currency-converter">
+
+    <!-- Título principal -->
+    <top>
+        <VBox alignment="CENTER" spacing="10">
+            <padding>
+                <Insets top="20" bottom="20" />
+            </padding>
+            <Label text="Convertidor de Monedas" styleClass="converter-title"/>
+            <Label text="Convierte rápida y fácilmente entre diferentes monedas"
+                   styleClass="converter-subtitle"/>
+        </VBox>
+    </top>
+
+    <!-- Contenido principal -->
+    <center>
+        <VBox spacing="25" alignment="TOP_CENTER">
+            <padding>
+                <Insets top="10" right="30" bottom="30" left="30" />
+            </padding>
+
+            <!-- Tarjeta de conversión -->
+            <StackPane styleClass="converter-card">
+                <padding>
+                    <Insets top="25" right="25" bottom="25" left="25" />
+                </padding>
+
+                <VBox spacing="20">
+                    <!-- Sección moneda origen -->
+                    <VBox spacing="5">
+                        <Label text="Moneda de Origen" styleClass="source-label"/>
+                        <HBox spacing="15" alignment="CENTER_LEFT">
+                            <ComboBox fx:id="comboSource"
+                                      promptText="Seleccione moneda origen"
+                                      prefWidth="250"
+                                      styleClass="currency-combo-box"/>
+                            <TextField fx:id="fieldAmount"
+                                       promptText="Ingrese monto"
+                                       prefWidth="200"
+                                       styleClass="amount-field"/>
+                        </HBox>
+                    </VBox>
+
+                    <!-- Indicador visual de conversión -->
+                    <HBox alignment="CENTER" spacing="10">
+                        <padding>
+                            <Insets top="5" bottom="5" />
+                        </padding>
+
+                        <Line endX="120" styleClass="conversion-indicator-line"/>
+
+                        <StackPane>
+                            <Circle radius="20" styleClass="conversion-indicator-circle"/>
+                            <Label text="✕" styleClass="conversion-symbol">
+                                <font>
+                                    <Font size="16" />
+                                </font>
+                            </Label>
+                        </StackPane>
+
+                        <Line endX="120" styleClass="conversion-indicator-line"/>
+                    </HBox>
+
+                    <!-- Sección moneda destino -->
+                    <VBox spacing="5">
+                        <Label text="Moneda de Destino" styleClass="target-label"/>
+                        <ComboBox fx:id="comboTarget"
+                                  promptText="Seleccione moneda destino"
+                                  prefWidth="250"
+                                  styleClass="currency-combo-box"/>
+                    </VBox>
+
+                    <!-- Botón de conversión -->
+                    <HBox alignment="CENTER">
+                        <padding>
+                            <Insets top="10" />
+                        </padding>
+                        <Button fx:id="btnConvert"
+                                text="Convertir"
+                                prefWidth="200"
+                                prefHeight="40"
+                                styleClass="convert-button"/>
+                    </HBox>
+                </VBox>
+            </StackPane>
+
+            <!-- Tarjeta de resultado -->
+            <StackPane styleClass="converter-card">
+                <padding>
+                    <Insets top="20" right="20" bottom="20" left="20" />
+                </padding>
+
+                <VBox spacing="10" alignment="CENTER">
+                    <Label text="Resultado" styleClass="result-title"/>
+
+                    <HBox alignment="CENTER" spacing="10">
+                        <Label fx:id="labelSourceAmount" text="0.00" styleClass="source-amount"/>
+                        <Label fx:id="labelSourceCurrency" text="USD" styleClass="source-currency"/>
+
+                        <Label text="=" style="-fx-font-weight: bold;">
+                            <font>
+                                <Font size="22" />
+                            </font>
+                        </Label>
+
+                        <Label fx:id="labelTargetAmount" text="0.00" styleClass="target-amount"/>
+                        <Label fx:id="labelTargetCurrency" text="EUR" styleClass="target-currency"/>
+                    </HBox>
+
+                    <Label fx:id="labelExchangeRate" text="Tasa de cambio: 1 USD = 0.85 EUR" styleClass="exchange-rate"/>
+                </VBox>
+            </StackPane>
+        </VBox>
+    </center>
+
+    <!-- Pie de página -->
+    <bottom>
+        <HBox alignment="CENTER" styleClass="footer">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10" />
+            </padding>
+            <Label text="© 2025 Bodoque Imagina" styleClass="footer-text"/>
+        </HBox>
+    </bottom>
+
+</BorderPane>

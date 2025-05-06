@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.shape.Rectangle?>
+<?import java.net.URL?>
+<HBox xmlns="http://javafx.com/javafx"
+      xmlns:fx="http://javafx.com/fxml"
+      fx:controller="bodoque.imagina.convertir_monedas.util.Controllers.ItemController"
+      styleClass="item-container">
+
+    <stylesheets>
+        <URL value="@Styles.css" />
+    </stylesheets>
+
+    <children>
+        <ImageView fx:id="itemIcon" fitHeight="40.0" fitWidth="40.0" preserveRatio="true" pickOnBounds="true" styleClass="item-icon">
+            <clip>
+                <Rectangle width="40.0" height="40.0" arcWidth="10" arcHeight="10"/>
+            </clip>
+        </ImageView>
+
+        <VBox fx:id="titulo" alignment="CENTER_LEFT" styleClass="item-title-container">
+            <children>
+                <Label fx:id="itemText" text="Nombre del pais" wrapText="true" styleClass="item-text"/>
+            </children>
+        </VBox>
+
+        <Rectangle fx:id="statusIndicator" styleClass="status-indicator" visible="false" managed="false" />
+    </children>
+</HBox>
